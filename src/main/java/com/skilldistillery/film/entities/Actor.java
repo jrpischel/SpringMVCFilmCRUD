@@ -1,5 +1,5 @@
 package com.skilldistillery.film.entities;
 
-public class Film {
+public class Actor {
 
 }
