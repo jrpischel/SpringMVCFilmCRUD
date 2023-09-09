@@ -14,6 +14,7 @@
 
 
 	<c:choose>
+
 		<c:when test="${! empty film}">
 			<h1>Film Details</h1>
 			<ul>
@@ -48,5 +49,6 @@
 	<br>
 
 	<a href="index.html">Back to home</a>
+
 </body>
 </html>
