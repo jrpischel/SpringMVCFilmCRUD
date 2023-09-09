@@ -18,13 +18,11 @@ public class FilmController {
 	@Autowired
 	private FilmDAO filmDao;
 
-	@RequestMapping( path="getFilm.do", method=RequestMethod.GET, params = "filmId")
+	@RequestMapping(path = "getFilm.do", method = RequestMethod.GET, params = "filmId")
 	public ModelAndView getFilmById(@RequestParam Integer filmId) {
 		ModelAndView mv = new ModelAndView();
 		Film film = filmDao.findFilmById(filmId);
-		if (film != null) {
-			mv.addObject("film", film);
-		}
+		mv.addObject("film", film);
 		mv.setViewName("WEB-INF/film.jsp");
 		return mv;
 	}
