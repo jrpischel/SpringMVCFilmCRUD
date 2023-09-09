@@ -35,5 +35,14 @@ public class FilmController {
 		mv.setViewName("WEB-INF/keyword.jsp");
 		return mv;
 	}
+	
+	@RequestMapping(path = "getFilm.do", method = RequestMethod.GET, params = "delete")
+	public ModelAndView deleteFilm(@RequestParam Film film) {
+		ModelAndView mv = new ModelAndView();
+		filmDao.deleteFilm(film);
+		mv.addObject("film", film);
+		mv.setViewName("WEB-INF/deleted.jsp");
+		return mv;
+	}
 
 }
