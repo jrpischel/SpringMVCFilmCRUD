@@ -18,7 +18,7 @@ public class FilmController {
 	@Autowired
 	private FilmDAO filmDao;
 
-	@RequestMapping( path="getFilm.do", method=RequestMethod.GET)
+	@RequestMapping( path="getFilm.do", method=RequestMethod.GET, params = "filmId")
 	public ModelAndView getFilmById(@RequestParam Integer filmId) {
 		ModelAndView mv = new ModelAndView();
 		Film film = filmDao.findFilmById(filmId);
@@ -28,23 +28,14 @@ public class FilmController {
 		mv.setViewName("WEB-INF/film.jsp");
 		return mv;
 	}
-	
-	@RequestMapping( path="getFilm.do", method=RequestMethod.GET)
+
+	@RequestMapping(path = "getFilm.do", method = RequestMethod.GET, params = "keyword")
 	public ModelAndView getFilmByKeyWord(@RequestParam String keyword) {
 		ModelAndView mv = new ModelAndView();
 		List<Film> films = filmDao.findFilmByKeyWord(keyword);
-		while (films != null) {
-			mv.addObject("film", films);
-			Film film = new Film();
-			films.add(film);
-		}
-		mv.setViewName("WEB-INF/film.jsp");
+		mv.addObject("film", films);
+		mv.setViewName("WEB-INF/keyword.jsp");
 		return mv;
 	}
-	
-	
-	
-	
-	
-	
+
 }

@@ -14,7 +14,7 @@
 	
 	
 	<c:choose>
-    <c:when test="${! empty filmId}">
+    <c:when test="${! empty film}">
 	<h1>Film Details</h1>
       <ul>
         <li>${film.id}</li>
