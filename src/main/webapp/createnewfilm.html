@@ -22,25 +22,25 @@
 			<br>
 			<br>
 			<label for="releaseYear">Release Year:</label>
-			<input type="number" name="releaseYear" id="releaseYear" min="1900" max="2099" step="1" value="2000">
+			<input type="number" name="releaseYear" id="releaseYear" value="2000" min="1900" max="2099" step="1" ">
 
 
 			<br>
 			<br>
 			<label for="languageID">*Language ID:</label>
-			<input type="text" name="languageID" id="languageID" value="1" required>
+			<input type="number" name="languageID" id="languageID" value="1" min="1" max="6" step="1" required>
 			<br>1-English 2-Italian 3-Japanese 4-Mandarin 5-French 6-German
 
 
 			<br>
 			<br>
 			<label for="rentalRate">Rental Rate:</label>
-			<input type="number" step="any" name="rentalRate" id="rentalRate" value="4.99">
+			<input type="number" name="rentalRate" id="rentalRate" value="4.99" min="0.99" step="any">
 
 			<br>
 			<br>
 			<label for="rentalDuration">Rental Duration:</label>
-			<input type="number" name="rentalDuration" id="rentalDuration" value="3" min="3">
+			<input type="number" name="rentalDuration" id="rentalDuration" value="3" min="3" step="1">
 
 
 			<br>
@@ -51,7 +51,7 @@
 			<br>
 			<br>
 			<label for="replacementCost">Replacement Cost:</label>
-			<input type="number" step="1.00" name="replacementCost" id="replacementCost" value="19.99">
+			<input type="number" name="replacementCost" id="replacementCost" value="19.99" min="19.99" step="1.00">
 
 			<br>
 			<br>
@@ -63,6 +63,12 @@
 			<br>
 			<label for="specialFeatures">Special Features:</label>
 			<input type="text" name="specialFeatures" id="specialFeatures">
+
+
+			<br>
+			<br>
+			<label for="category">Category:</label>
+			<input type="text" name="category" id="category">
 				
 			<br>
 			<br>

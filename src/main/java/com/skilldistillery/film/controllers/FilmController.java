@@ -35,16 +35,16 @@ public class FilmController {
 		mv.setViewName("WEB-INF/keyword.jsp");
 		return mv;
 	}
-
-//	@RequestMapping(path = "deleted.do", method = RequestMethod.GET, params = "filmId")
-//	public ModelAndView deleteFilm(Film film) {
-//		ModelAndView mv = new ModelAndView();
-//		filmDao.deleteFilm(film);
-//		mv.addObject("film", film);
-//		mv.setViewName("WEB-INF/deleted.jsp");
-//		return mv;
-//	}
 	
+	@RequestMapping(path = "listFilms.do", method = RequestMethod.GET)
+	public ModelAndView listAll() {
+		ModelAndView mv = new ModelAndView();
+		List<Film> films = filmDao.listAll();
+		mv.addObject("film", films);
+		mv.setViewName("WEB-INF/keyword.jsp");
+		return mv;
+	}
+
 	@RequestMapping(path = "deleted.do", method = RequestMethod.GET, params = "filmId")
 	public ModelAndView deleteFilm(int filmId) {
 		ModelAndView mv = new ModelAndView();
@@ -60,14 +60,14 @@ public class FilmController {
 
 	}
 
-	@RequestMapping(path = "editFilm.do", method = RequestMethod.GET, params = "edit")
-	public ModelAndView editFilm(@RequestParam Film film) {
-		ModelAndView mv = new ModelAndView();
-		filmDao.editFilm(film);
-		mv.addObject("film", film);
-		mv.setViewName("WEB-INF/film.jsp");
-		return mv;
-	}
+//	@RequestMapping(path = "editFilm.do", method = RequestMethod.GET, params = "edit")
+//	public ModelAndView editFilm(@RequestParam Film film) {
+//		ModelAndView mv = new ModelAndView();
+//		filmDao.editFilm(film);
+//		mv.addObject("film", film);
+//		mv.setViewName("WEB-INF/film.jsp");
+//		return mv;
+//	}
 	
 	@RequestMapping(path = "createFilm.do", method = RequestMethod.GET)
 	public ModelAndView createFilm(Film film) {

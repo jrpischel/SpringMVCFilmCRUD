@@ -189,6 +189,44 @@ public class FilmDaoJdbcImpl implements FilmDAO {
 		return films;
 
 	}
+	
+	public List<Film> listAll() {
+		List<Film> films = new ArrayList<>();
+		Film film = null;
+		try {
+			Connection conn = DriverManager.getConnection(URL, user, pass);
+			String sql = "select * from film f join language l on f.language_id = l.id join film_category fc on fc.film_id = f.id join category c on c.id = fc.category_id";
+			PreparedStatement stmt = conn.prepareStatement(sql);
+			ResultSet rs = stmt.executeQuery();
+			while (rs.next()) {
+				int filmId = rs.getInt("id");
+				String title = rs.getString("title");
+				String description = rs.getString("description");
+				int releaseYear = rs.getShort("release_year");
+				int languageID = rs.getInt("language_id");
+				String language = rs.getString("name");
+				int rentalDuration = rs.getInt("rental_duration");
+				double rentalRate = rs.getDouble("rental_rate");
+				int length = rs.getInt("length");
+				double replacementCost = rs.getDouble("replacement_cost");
+				String rating = rs.getString("rating");
+				String specialFeatures = rs.getString("special_features");
+				String category = rs.getString("name");
+				film = new Film(filmId, releaseYear, language, languageID, rentalDuration, length, title, description,
+						rating, specialFeatures, rentalRate, replacementCost, category);
+				film.setActors(findActorsByFilmId(filmId));
+				films.add(film);
+			}
+			rs.close();
+			stmt.close();
+			conn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return films;
+
+	}
+
 
 //		NEW CODE
 

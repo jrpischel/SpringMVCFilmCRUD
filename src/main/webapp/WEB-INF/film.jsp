@@ -39,12 +39,15 @@
 
 
 
-	<button type="button" class="btn btn-info">Edit</button>
+	
 
 	<br>
 	<br>
 	
 	<a href="deleted.do?filmId=${film.id}">Delete This Film</a>
+	<br>
+	<br>
+	
 	
 	<br>
 	<br>
