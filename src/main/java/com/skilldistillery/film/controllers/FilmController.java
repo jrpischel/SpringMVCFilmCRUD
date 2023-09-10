@@ -35,13 +35,46 @@ public class FilmController {
 		mv.setViewName("WEB-INF/keyword.jsp");
 		return mv;
 	}
+
+//	@RequestMapping(path = "deleted.do", method = RequestMethod.GET, params = "filmId")
+//	public ModelAndView deleteFilm(Film film) {
+//		ModelAndView mv = new ModelAndView();
+//		filmDao.deleteFilm(film);
+//		mv.addObject("film", film);
+//		mv.setViewName("WEB-INF/deleted.jsp");
+//		return mv;
+//	}
 	
-	@RequestMapping(path = "getFilm.do", method = RequestMethod.GET, params = "delete")
-	public ModelAndView deleteFilm(@RequestParam Film film) {
+	@RequestMapping(path = "deleted.do", method = RequestMethod.GET, params = "filmId")
+	public ModelAndView deleteFilm(int filmId) {
 		ModelAndView mv = new ModelAndView();
-		filmDao.deleteFilm(film);
-		mv.addObject("film", film);
+		Film filmToDelete = filmDao.findFilmById(filmId);
+		if (filmToDelete.getId() <= 1000) {
+			filmToDelete = null;
+		} else {
+			filmDao.deleteFilm(filmToDelete);	
+		}
+		mv.addObject("film", filmToDelete);
 		mv.setViewName("WEB-INF/deleted.jsp");
+		return mv;
+
+	}
+
+	@RequestMapping(path = "editFilm.do", method = RequestMethod.GET, params = "edit")
+	public ModelAndView editFilm(@RequestParam Film film) {
+		ModelAndView mv = new ModelAndView();
+		filmDao.editFilm(film);
+		mv.addObject("film", film);
+		mv.setViewName("WEB-INF/film.jsp");
+		return mv;
+	}
+	
+	@RequestMapping(path = "createFilm.do", method = RequestMethod.GET)
+	public ModelAndView createFilm(Film film) {
+		ModelAndView mv = new ModelAndView();
+		Film newFilm = filmDao.createFilm(film);
+		mv.addObject("film", newFilm);
+		mv.setViewName("WEB-INF/film.jsp");
 		return mv;
 	}
 

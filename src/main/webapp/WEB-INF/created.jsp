@@ -5,17 +5,20 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Deleted</title>
+<title>Created New Film</title>
 </head>
 <body>
 
-<c:if test="${empty film }">
-<h1> Movie has been deleted</h1>
-</c:if>
-
-${film} was not deleted
-
-	<a href="index.html" role="button" class="btn btn-primary btn-lg">Back to home</a>
+<c:choose>
+	<c:when test="${empty film }">
+	<h1> film wasn't created invalid input </h1>
+	</c:when>
+	<c:otherwise>
+	<h1>Film was created with id: ${film.id} </h1>
+	
+	</c:otherwise>
+	</c:choose>
+	<br>
 
 </body>
 </html>

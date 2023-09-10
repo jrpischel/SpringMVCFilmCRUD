@@ -38,17 +38,21 @@
 
 
 
-	<button type="button" class="btn btn-info" >Edit</button>
+	<button type="button" class="btn btn-info">Edit</button>
 
 	<br>
 	<br>
 	
-	<a href="deleted.jsp"><button type="button" class="btn btn-danger" onclick="alert('are you sure you want to delete?')" name="delete">Delete</button></a>
-
+	<a href="deleted.do?filmId=${film.id}">Delete This Film</a>
+	
 	<br>
 	<br>
 
-	<a href="index.html" role="button" class="btn btn-primary btn-lg">Back to home</a>
+	<a href="index.html" role="button" class="btn btn-primary btn-lg">Back
+		to home</a>
+		
+		
+		
 
 </body>
 </html>

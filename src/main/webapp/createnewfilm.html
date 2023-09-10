@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Create New Film Entery</title>
+</head>
+<body>
+	
+	<h1>Add your film</h1>
+	<p> "*" indicates required fields</p><br>
+
+		<form action="createFilm.do" method="get">
+
+			<label for="title">*Title:</label>
+			<input type="text" name="title" id="title" required>
+
+			<br>
+			<br>
+			<label for="description">Description:</label>
+			<input type="text" name="description" id="description">
+
+			<br>
+			<br>
+			<label for="releaseYear">Release Year:</label>
+			<input type="number" name="releaseYear" id="releaseYear" min="1900" max="2099" step="1" value="2000">
+
+
+			<br>
+			<br>
+			<label for="languageID">*Language ID:</label>
+			<input type="text" name="languageID" id="languageID" placeholder="1" required>
+
+
+			<br>
+			<br>
+			<label for="rentalRate">Rental Rate:</label>
+			<input type="number" step="any" name="rentalRate" id="rentalRate" value="4.99">
+
+			<br>
+			<br>
+			<label for="rentalDuration">Rental Duration:</label>
+			<input type="number" name="rentalDuration" id="rentalDuration" value="3" min="3">
+
+
+			<br>
+			<br>
+			<label for="length">Length:</label>
+			<input type="number" name="length" id="length" value="120">
+
+			<br>
+			<br>
+			<label for="replacementCost">Replacement Cost:</label>
+			<input type="number" step="1.00" name="replacementCost" id="replacementCost" value="19.99">
+
+			<br>
+			<br>
+			<label for="rating">Rating:</label>
+			<input type="text" name="rating" id="rating" value="PG">
+
+
+			<br>
+			<br>
+			<label for="specialFeatures">Special Features:</label>
+			<input id="specialFeatures" name="specialFeatures" id="specialFeatures"
+				input type="checkbox" name="Trailers">Trailers
+				<input type="checkbox" name="DeletedScenes">DeletedScenes
+				<input type="checkbox" name="BehindTheScenes">BehindTheScene
+				<input type="checkbox" name="Commentaries">Commentaries
+			<br>
+			<br>
+			<input type="submit" />
+
+		</form>
+
+		<br>
+
+	
+
+
+</body>
+</html>
