@@ -9,11 +9,14 @@
 </head>
 <body>
 
-<c:if test="${empty film }">
-<h1> Movie has been deleted</h1>
-</c:if>
-
-${film} was not deleted
+<c:choose>
+<c:when test="${!empty film.id }">
+	<h1> ${film} was deleted </h1>
+	</c:when>
+	<c:otherwise>
+	<h1>${film} has NOT been deleted, please check the database and try again</h1>
+	</c:otherwise>
+</c:choose>
 
 	<a href="index.html" role="button" class="btn btn-primary btn-lg">Back to home</a>
 

@@ -28,6 +28,7 @@
 				<li><strong>Rental Rate: </strong>${film.rentalRate}</li>
 				<li><strong>Replacement Cost: </strong>${film.replacementCost}</li>
 				<li><strong>Description: </strong>${film.description}</li>
+				<li><strong>Category: </strong>${film.category}</li>
 				<li><strong>Cast: </strong>${film.actors}</li>
 			</ul>
 		</c:when>
