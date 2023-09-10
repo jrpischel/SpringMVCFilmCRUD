@@ -436,6 +436,9 @@ public class FilmDaoJdbcImpl implements FilmDAO {
 			stmt.setInt(1, film.getId());
 			int updateCount = stmt.executeUpdate();
 			ResultSet keys = stmt.getGeneratedKeys();
+			//debug
+			System.out.println(stmt);
+			
 			while (keys.next()) {
 				System.out.println("Delete Film ID " + keys.getInt(1));
 			}

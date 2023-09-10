@@ -65,11 +65,13 @@ public class FilmController {
 
 
 	@RequestMapping(path = "editFilm.do", method = RequestMethod.GET, params = "edit")
+
 	public ModelAndView editFilm(@RequestParam int filmId) {
 		ModelAndView mv = new ModelAndView();
-		filmDao.editFilm(film);
-		mv.addObject("film", film);
-		mv.setViewName("WEB-INF/film.jsp");
+		Film filmToBeEdited = filmDao.findFilmById(filmId);
+		filmDao.editFilm(filmToBeEdited);
+		mv.addObject("film", filmToBeEdited);
+		mv.setViewName("WEB-INF/edit.jsp");
 		return mv;
 	}
 	
