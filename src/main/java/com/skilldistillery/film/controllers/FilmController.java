@@ -36,7 +36,7 @@ public class FilmController {
 		return mv;
 	}
 	
-	@RequestMapping(path = "getFilm.do", method = RequestMethod.GET, params = "delete")
+	@RequestMapping(path = "delete.do", method = RequestMethod.GET, params = "delete")
 	public ModelAndView deleteFilm(@RequestParam Film film) {
 		ModelAndView mv = new ModelAndView();
 		filmDao.deleteFilm(film);
