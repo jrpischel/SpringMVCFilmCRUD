@@ -28,49 +28,45 @@
 				<li><strong>Rental Rate: </strong>${film.rentalRate}</li>
 				<li><strong>Replacement Cost: </strong>${film.replacementCost}</li>
 				<li><strong>Description: </strong>${film.description}</li>
-				<li><strong>Category: </strong>${film.category}</li>
+				<li><strong>Category: </strong>${film.categories}</li>
 				<li><strong>Cast: </strong>${film.actors}</li>
 			</ul>
 
-			<a href="edit.html"><button type="button" class="btn btn-info">Edit</button></a>
-
 			<br>
 			<br>
-			<form action="deleted.do" method="get" name="delete">
+			<br>
+			<br>
 
-				<button type="button" class="btn btn-danger"
-					onclick="alert('are you sure you want to delete?')" name="delete">Delete</button>
-
-			</form>
+			<a href="edit.do?filmId=${film.id}">Edit This Film</a>
 
 			<br>
 			<br>
 
-			<a href="index.html" role="button" class="btn btn-primary btn-lg">Back
-				to home</a>
-				
 			<a href="deleted.do?filmId=${film.id}">Delete This Film</a>
-	
+
+			
+
+
 		</c:when>
 		<c:otherwise>
+
+			<br>
+			<br>
+
 			<p>No Film with that ID can be found</p>
-			<a href="index.html" role="button" class="btn btn-primary btn-lg">Back
-				to home</a>
+
+			<br>
+			<br>
 
 		</c:otherwise>
 	</c:choose>
-
-
-
-
-
-
+	
+	<br>
+	<br>
+	<br>
+	<br>
+	
 	<a href="index.html" role="button" class="btn btn-primary btn-lg">Back
 		to home</a>
-
-
-
-
-
 </body>
 </html>

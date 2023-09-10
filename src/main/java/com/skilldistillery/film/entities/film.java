@@ -9,6 +9,19 @@ public class Film {
 	private String title, description, rating, specialFeatures, language, category;
 	private double rentalRate, replacementCost;
 	private List<Actor> actors;
+	private List<String> categories;
+
+	public List<String> getCategories() {
+		return categories;
+	}
+
+	public void setCategories(List<String> categories) {
+		this.categories = categories;
+	}
+
+	public void setCategory(String category) {
+		this.category = category;
+	}
 
 	public List<Actor> getActors() {
 		return actors;
@@ -190,14 +203,12 @@ public class Film {
 		return category;
 	}
 
-	public void setCategory(String category) {
-		this.category = category;
-	}
+	
 
 	@Override
 	public String toString() {
 		return "Film ID " + id + " Film Title " + title + " Release Year: " + releaseYear + " Rated: " + rating
-				+ " Description: " + description + " Available In: " + language + " Category: " + category + " Staring: " + actors;
+				+ " Description: " + description + " Available In: " + language + " Category: " + categories + " Staring: " + actors;
 	}
 
 }
