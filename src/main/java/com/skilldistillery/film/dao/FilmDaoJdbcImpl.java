@@ -31,16 +31,18 @@ public class FilmDaoJdbcImpl implements FilmDAO {
 		Film film = null;
 		try {
 			Connection conn = DriverManager.getConnection(URL, user, pass);
-			String sql = "select * from film f join language l on f.language_id = l.id join film_category fc on fc.film_id = f.id join category c on c.id = fc.category_id where f.id =?";
+			String sql = "select * from film f join language l on f.language_id = l.id where f.id =?";
+//			String sql = "select * from film f join language l on f.language_id = l.id join film_category fc on fc.film_id = f.id join category c on c.id = fc.category_id where f.id =?";
 			PreparedStatement stmt = conn.prepareStatement(sql);
 			stmt.setInt(1, id);
+			System.out.println();
 			ResultSet rs = stmt.executeQuery();
 			while (rs.next()) {
 				int filmId = rs.getInt("id");
 				String title = rs.getString("title");
 				String description = rs.getString("description");
 				int releaseYear = rs.getShort("release_year");
-				String language = rs.getString("name");
+				String language = rs.getString("l.name");
 				int languageID = rs.getInt("language_id");
 				int rentalDuration = rs.getInt("rental_duration");
 				double rentalRate = rs.getDouble("rental_rate");
@@ -48,10 +50,11 @@ public class FilmDaoJdbcImpl implements FilmDAO {
 				double replacementCost = rs.getDouble("replacement_cost");
 				String rating = rs.getString("rating");
 				String specialFeatures = rs.getString("special_features");
-				String category = rs.getString("name");
+//				String category = rs.getString("c.name");
 				film = new Film(filmId, releaseYear, language, languageID, rentalDuration, length, title, description,
-						rating, specialFeatures, rentalRate, replacementCost, category);
+						rating, specialFeatures, rentalRate, replacementCost, null);
 				film.setActors(findActorsByFilmId(filmId));
+				film.setCategories(findCategoryByFilmId(filmId));
 			}
 
 			rs.close();
@@ -149,6 +152,28 @@ public class FilmDaoJdbcImpl implements FilmDAO {
 			e.printStackTrace();
 		}
 		return actors;
+	}
+	
+	@Override
+	public List<String> findCategoryByFilmId(int filmId) {
+		List<String> categories = new ArrayList<>();
+		try {
+			Connection conn = DriverManager.getConnection(URL, user, pass);
+			String sql = "select name from category c join film_category fc on c.id = fc.category_id join film f on f.id = fc.film_id where f.id = ?";
+			PreparedStatement stmt = conn.prepareStatement(sql);
+			stmt.setInt(1, filmId);
+			ResultSet rs = stmt.executeQuery();
+			while (rs.next()) {
+				String category = rs.getString("name");
+				categories.add(category);
+			}
+			rs.close();
+			stmt.close();
+			conn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return categories;
 	}
 
 	public List<Film> findFilmByKeyWord(String keyWord) {
