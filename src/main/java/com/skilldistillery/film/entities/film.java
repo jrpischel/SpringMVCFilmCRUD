@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Objects;
 
 public class Film {
-	private int i = 0;
+	
 	private int id, releaseYear, languageID, rentalDuration, length;
 	private String title, description, rating, specialFeatures, language, category;
 	private double rentalRate, replacementCost;
@@ -201,3 +201,4 @@ public class Film {
 	}
 
 }
+
