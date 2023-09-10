@@ -481,17 +481,17 @@ public class FilmDaoJdbcImpl implements FilmDAO {
 			int updateCount = stmt.executeUpdate();
 			if (updateCount == 1) {
 				// Replace actor's film list
-//				sql = "DELETE FROM film_actor WHERE film_id = ?";
-//				stmt = conn.prepareStatement(sql);
-//				stmt.setInt(1, film.getId());
-//				updateCount = stmt.executeUpdate();
-//				sql = "INSERT INTO film_actor (actor_id, film_id) VALUES (?,?)";
-//				stmt = conn.prepareStatement(sql);
-//				for (Actor actor : film.getActors()) {
-//					stmt.setInt(1, actor.getId());
-//					stmt.setInt(2, film.getId());
-//					updateCount = stmt.executeUpdate();
-//				}
+				sql = "DELETE FROM film_actor WHERE film_id = ?";
+				stmt = conn.prepareStatement(sql);
+				stmt.setInt(1, film.getId());
+				updateCount = stmt.executeUpdate();
+				sql = "INSERT INTO film_actor (actor_id, film_id) VALUES (?,?)";
+				stmt = conn.prepareStatement(sql);
+				for (Actor actor : film.getActors()) {
+					stmt.setInt(1, actor.getId());
+					stmt.setInt(2, film.getId());
+					updateCount = stmt.executeUpdate();
+				}
 				conn.commit(); // COMMIT TRANSACTION
 			} else {
 				film = null;
