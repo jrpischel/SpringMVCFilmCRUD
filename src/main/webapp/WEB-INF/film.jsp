@@ -48,9 +48,15 @@
 
 			<a href="index.html" role="button" class="btn btn-primary btn-lg">Back
 				to home</a>
+				
+			<a href="deleted.do?filmId=${film.id}">Delete This Film</a>
+	
 		</c:when>
 		<c:otherwise>
 			<p>No Film with that ID can be found</p>
+			
+			
+			
 			<a href="index.html" role="button" class="btn btn-primary btn-lg">Back
 				to home</a>
 
@@ -60,15 +66,7 @@
 
 
 
-	<button type="button" class="btn btn-info">Edit</button>
 
-	<br>
-	<br>
-
-	<a href="deleted.do?filmId=${film.id}">Delete This Film</a>
-
-	<br>
-	<br>
 
 	<a href="index.html" role="button" class="btn btn-primary btn-lg">Back
 		to home</a>

@@ -18,5 +18,6 @@ public interface FilmDAO {
 	  public Film createFilm(Film film);
 	  public Film deleteFilm(Film film);
 	  public boolean editFilm(Film film);
+	  public List<Film> listAll();
 	
 }

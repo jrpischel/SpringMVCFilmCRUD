@@ -19,6 +19,9 @@
 	</c:otherwise>
 	</c:choose>
 	<br>
+	
+	<a href="index.html" role="button" class="btn btn-primary btn-lg">Back
+		to home</a>
 
 </body>
 </html>
