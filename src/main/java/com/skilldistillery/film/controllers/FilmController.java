@@ -64,14 +64,21 @@ public class FilmController {
 	}
 
 
-	@RequestMapping(path = "editFilm.do", method = RequestMethod.GET, params = "edit")
-
+	@RequestMapping(path = "editForm.do", method = RequestMethod.GET, params = "filmId")
 	public ModelAndView editFilm(@RequestParam int filmId) {
 		ModelAndView mv = new ModelAndView();
 		Film filmToBeEdited = filmDao.findFilmById(filmId);
-		filmDao.editFilm(filmToBeEdited);
 		mv.addObject("film", filmToBeEdited);
 		mv.setViewName("WEB-INF/edit.jsp");
+		return mv;
+	}
+	
+	@RequestMapping(path = "edit.do", method = RequestMethod.POST)
+	public ModelAndView editFilm(Film film) {
+		ModelAndView mv = new ModelAndView();
+		filmDao.editFilm(film);
+		mv.addObject("film", filmDao.findFilmById(film.getId()));
+		mv.setViewName("WEB-INF/film.jsp");
 		return mv;
 	}
 	

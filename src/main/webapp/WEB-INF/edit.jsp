@@ -27,7 +27,9 @@
  <h1>Edit your film</h1>
 	<p> "*" indicates required fields</p><br>
 
-		<form action="editFilm.do" method="get">
+		<form action="edit.do" method="post">
+		
+		<input type="hidden" name="id" value="${film.id}"/> 
 
 			<label for="title">*Title:</label>
 			<input type="text" name="title" id="title" required>
@@ -82,11 +84,6 @@
 			<label for="specialFeatures">Special Features:</label>
 			<input type="text" name="specialFeatures" id="specialFeatures">
 
-
-			<br>
-			<br>
-			<label for="category">Category:</label>
-			<input type="text" name="category" id="category">
 				
 			<br>
 			<br>
