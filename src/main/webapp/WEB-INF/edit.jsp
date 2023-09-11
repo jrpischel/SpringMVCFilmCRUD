@@ -7,23 +7,7 @@
 <title>Edit film</title>
 </head>
 <body>
- 
- <h1>Current Film Details</h1>
-			<ul>
-				<li><strong>Film ID: </strong>${film.id}</li>
-				<li><strong>Title: </strong>${film.title}</li>
-				<li><strong>Release Year: </strong>${film.releaseYear}</li>
-				<li><strong>Length: </strong>${film.length}</li>
-				<li><strong>Rating: </strong>${film.rating}</li>
-				<li><strong>Special Features: </strong>${film.specialFeatures}</li>
-				<li><strong>Language: </strong>${film.language}</li>
-				<li><strong>Rental Rate: </strong>${film.rentalRate}</li>
-				<li><strong>Replacement Cost: </strong>${film.replacementCost}</li>
-				<li><strong>Description: </strong>${film.description}</li>
-				<li><strong>Category: </strong>${film.category}</li>
-				<li><strong>Cast: </strong>${film.actors}</li>
-			</ul>
- 
+
  <h1>Edit your film</h1>
 	<p> "*" indicates required fields</p><br>
 

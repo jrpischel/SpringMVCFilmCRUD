@@ -8,12 +8,16 @@
 <head>
 <meta charset="UTF-8">
 <title>Film Details</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
 
 
-
-	<c:choose>
+<div
+  class="bg-image p-5 text-center shadow-1-strong rounded mb-5 text-white"
+  style="background-image: url('https://mdbcdn.b-cdn.net/img/new/slides/003.webp');"
+>
+ <c:choose>
 
 		<c:when test="${! empty film}">
 			<h1>Film Details</h1>
@@ -37,12 +41,12 @@
 			<br>
 			<br>
 
-			<a href="editForm.do?filmId=${film.id}">Edit This Film</a>
+			<a href="editForm.do?filmId=${film.id}"><button class="btn btn-info" type="button">Edit This Film</button></a>
 
 			<br>
 			<br>
 
-			<a href="deleted.do?filmId=${film.id}">Delete This Film</a>
+			<a href="deleted.do?filmId=${film.id}"><button class="btn btn-danger" type="button" onclick="alert('Are you sure you would like to delete this film')">Delete This Film</button></a>
 
 			
 
@@ -60,13 +64,22 @@
 
 		</c:otherwise>
 	</c:choose>
-	
 	<br>
 	<br>
 	<br>
 	<br>
 	
-	<a href="index.html" role="button" class="btn btn-primary btn-lg">Back
+	<a href="findbyid.html" role="button" >Back
+		to Find Film by ID</a>
+	
+	<br>
+	<br>
+	
+	<a href="index.html" role="button" >Back
 		to home</a>
+</div>
+
+
+	
 </body>
 </html>
