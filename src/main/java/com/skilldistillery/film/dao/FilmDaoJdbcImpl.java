@@ -482,8 +482,12 @@ public class FilmDaoJdbcImpl implements FilmDAO {
 			stmt.setString(10, film.getSpecialFeatures());
 			stmt.setInt(11, film.getId());
 			int updateCount = stmt.executeUpdate();
-			if (updateCount == 1) {
-				// Replace actor's film list
+			System.out.println(stmt);
+			System.out.println(updateCount);
+			conn.commit(); // COMMIT TRANSACTION
+			System.out.println("COMMIT ***************************************************");
+//			if (updateCount == 1) {
+//				// Replace actor's film list
 //				sql = "DELETE FROM film_actor WHERE film_id = ?";
 //				stmt = conn.prepareStatement(sql);
 //				stmt.setInt(1, film.getId());
@@ -495,15 +499,15 @@ public class FilmDaoJdbcImpl implements FilmDAO {
 //					stmt.setInt(2, film.getId());
 //					updateCount = stmt.executeUpdate();
 //				}
-				conn.commit(); // COMMIT TRANSACTION
-			} else {
-				film = null;
-			}
+//			} else {
+//				film = null;
+//			}
 		} catch (SQLException sqle) {
 			sqle.printStackTrace();
 			if (conn != null) {
 				try {
 					conn.rollback();
+					System.out.println("ROLLBACK ***********************************************");
 				} // ROLLBACK TRANSACTION ON ERROR
 				catch (SQLException sqle2) {
 					System.err.println("Error trying to rollback");

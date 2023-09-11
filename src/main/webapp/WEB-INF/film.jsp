@@ -37,7 +37,7 @@
 			<br>
 			<br>
 
-			<a href="edit.do?filmId=${film.id}">Edit This Film</a>
+			<a href="editForm.do?filmId=${film.id}">Edit This Film</a>
 
 			<br>
 			<br>
