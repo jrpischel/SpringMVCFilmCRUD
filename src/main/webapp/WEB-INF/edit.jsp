@@ -82,11 +82,6 @@
 			<label for="specialFeatures">Special Features:</label>
 			<input type="text" name="specialFeatures" id="specialFeatures">
 
-
-			<br>
-			<br>
-			<label for="category">Category:</label>
-			<input type="text" name="category" id="category">
 				
 			<br>
 			<br>

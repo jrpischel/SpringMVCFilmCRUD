@@ -64,7 +64,7 @@ public class FilmController {
 	}
 
 
-	@RequestMapping(path = "editFilm.do", method = RequestMethod.GET, params = "edit")
+	@RequestMapping(path = "edit.do", method = RequestMethod.GET, params = "filmId")
 	public ModelAndView editFilm(@RequestParam Film film) {
 		ModelAndView mv = new ModelAndView();
 		filmDao.editFilm(film);
